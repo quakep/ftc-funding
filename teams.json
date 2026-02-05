@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Bolt.m3",
+    "short": "FTC Team",
+    "long": "Мы команда FTC Bolt.m3. Участвуем в соревнованиях, разрабатываем собственные механизмы и проекты.",
+    "photo": "images/a.svg",
+    "funds_needed": 100000,
+    "contact": "quakepitsme@gmail.com"
+  }
+]
