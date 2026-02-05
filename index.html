@@ -31,7 +31,13 @@ tailwind.config = {
          onclick="location.href='index.html'">
       FTC<span class="text-whiteMain">FUNDING</span>
     </div>
-    <div id="nav-auth" class="flex gap-3"></div>
+    <div id="nav-auth" class="flex gap-4 items-center">
+    <a href="add-team.html"
+      class="px-4 py-2 border border-redMain/50 rounded-lg
+              hover:bg-redMain hover:text-black transition">
+      Add My Team
+    </a>
+</div>
   </div>
 </nav>
 
@@ -104,7 +110,6 @@ fetch("teams.json").then(r=>r.json()).then(data=>{
 });
 </script>
 
-<!-- FOOTER -->
 <footer class="bg-darkDeep border-t border-redMain/50 mt-20">
   <div class="max-w-7xl mx-auto px-6 py-6 text-center space-y-2">
     <p class="text-gray-300">📧 Контакты: quakepitsme@gmail.com | 📞 +7 707 150 4015</p>
@@ -116,7 +121,5 @@ fetch("teams.json").then(r=>r.json()).then(data=>{
     </div>
   </div>
 </footer>
-
-
 </body>
 </html>
