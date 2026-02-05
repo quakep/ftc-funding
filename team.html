@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Команда</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        redMain: 'rgba(234,35,42,1)',
+        darkMain: 'rgba(42,43,45,1)',
+        darkDeep: 'rgba(26,27,29,1)',
+        whiteMain: 'rgba(255,255,255,1)'
+      }
+    }
+  }
+}
+</script>
+</head>
+
+<body class="bg-darkDeep text-whiteMain">
+
+<nav class="bg-darkDeep border-b border-redMain/50">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <a href="index.html" class="text-redMain font-bold text-xl">← Назад</a>
+  </div>
+</nav>
+
+<div class="max-w-5xl mx-auto px-6 py-10">
+  <div id="team-card"
+       class="bg-darkMain rounded-2xl border border-redMain/40 p-8"></div>
+</div>
+
+<script>
+const id = +new URLSearchParams(location.search).get("id");
+
+fetch("teams.json").then(r => r.json()).then(d => {
+  const t = d.find(x => x.id === id);
+  if(!t){
+    document.getElementById("team-card").innerHTML = "<p class='text-redMain text-xl'>Команда не найдена</p>";
+    return;
+  }
+
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(t.contact)}&su=Спонсирование%20команды&body=Здравствуйте,%20хочу%20поддержать%20вашу%20команду`;
+
+  document.getElementById("team-card").innerHTML = `
+    <img src="${t.photo}" class="w-full max-h-[400px] object-contain rounded-xl mb-6 bg-darkDeep p-4">
+
+    <h1 class="text-4xl font-extrabold text-redMain mb-4">${t.name}</h1>
+    <p class="text-gray-300 mb-6">${t.long}</p>
+
+    <div class="flex justify-between mb-8">
+      <span class="text-lg">Нужно:</span>
+      <span class="text-2xl font-bold text-redMain">${t.funds_needed} ₸</span>
+    </div>
+
+    <div class="flex gap-4">
+      <a href="${gmailLink}"
+         target="_blank"
+         class="px-4 py-2 bg-redMain text-black rounded-lg hover:brightness-110 transition">
+        Связаться
+      </a>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
