@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTC FUNDING</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        redMain: 'rgba(234,35,42,1)',
+        darkMain: 'rgba(42,43,45,1)',
+        darkDeep: 'rgba(26,27,29,1)',
+        whiteMain: 'rgba(255,255,255,1)'
+      }
+    }
+  }
+}
+</script>
+</head>
+
+<body class="bg-darkDeep text-whiteMain">
+
+<!-- NAVBAR -->
+<nav class="bg-darkDeep border-b border-redMain/50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-redMain font-extrabold text-2xl cursor-pointer"
+         onclick="location.href='index.html'">
+      FTC<span class="text-whiteMain">FUNDING</span>
+    </div>
+    <div id="nav-auth" class="flex gap-3"></div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="max-w-7xl mx-auto px-6 py-10">
+  <h1 class="text-4xl font-extrabold mb-10">
+    Список <span class="text-redMain">команд</span>
+  </h1>
+
+  <div id="teams"
+       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+  </div>
+</div>
+
+<script>
+function renderNavbar(){
+  const nav=document.getElementById("nav-auth");
+  const user=localStorage.getItem("user");
+  if(user){
+    nav.innerHTML=`
+      <span class="text-gray-300 self-center">${user}</span>
+      <button onclick="logout()"
+        class="px-4 py-2 bg-darkMain border border-redMain/40 rounded-lg hover:border-redMain transition">
+        Выйти
+      </button>`;
+  }else{
+    // nav.innerHTML=`
+    //   <a href="login.html"
+    //      class="px-4 py-2 border border-redMain/50 rounded-lg hover:bg-redMain hover:text-black transition">
+    //      Логин
+    //   </a>
+    //   <a href="register.html"
+    //      class="px-4 py-2 bg-redMain text-black rounded-lg hover:brightness-110 transition">
+    //      Регистрация
+    //   </a>`;
+  }
+}
+function logout(){localStorage.removeItem("user");location.reload();}
+renderNavbar();
+
+fetch("teams.json").then(r=>r.json()).then(data=>{
+  const root=document.getElementById("teams");
+  data.forEach(t=>{
+    const c=document.createElement("div");
+    c.className=`
+      bg-darkMain rounded-xl overflow-hidden
+      border border-white/5
+      hover:border-redMain hover:-translate-y-1
+      transition-all duration-300 cursor-pointer
+    `;
+    c.innerHTML=`
+  <div class="relative rounded-xl overflow-hidden border border-white/5 hover:border-redMain hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+    <div class="w-full aspect-[4/3] overflow-hidden rounded-t-xl">
+      <img src="${t.photo}" class="w-full h-full object-contain bg-darkDeep p-4">
+    </div>
+    <div class="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition flex flex-col items-center justify-center gap-2 rounded-t-xl">
+      <span class="text-redMain font-bold text-lg">Открыть</span>
+      </a>
+    </div>
+    <div class="p-4">
+      <h3 class="font-bold text-xl text-redMain mb-2">${t.name}</h3>
+      <p class="text-gray-300 text-sm">${t.short}</p>
+    </div>
+  </div>
+`;
+
+    c.onclick=()=>location.href=`team.html?id=${t.id}`;
+    root.appendChild(c);
+  });
+});
+</script>
+
+<!-- FOOTER -->
+<footer class="bg-darkDeep border-t border-redMain/50 mt-20">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-center space-y-2">
+    <p class="text-gray-300">📧 Контакты: quakepitsme@gmail.com | 📞 +7 707 150 4015</p>
+    <p class="text-gray-400 text-sm">© 2026 Quakep. Все права защищены.</p>
+    <div class="flex justify-center gap-4 mt-2">
+      <!-- <a href="mailto:info@ftc-funding.kz" class="text-redMain hover:underline">Email</a>
+      <a href="https://t.me/ftc_funding" target="_blank" class="text-redMain hover:underline">Telegram</a>
+      <a href="https://wa.me/77771234567" target="_blank" class="text-redMain hover:underline">WhatsApp</a> -->
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
