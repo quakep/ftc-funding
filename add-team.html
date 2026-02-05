@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add My Team</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            redMain: 'rgba(234,35,42,1)',
+            darkMain: 'rgba(42,43,45,1)',
+            darkDeep: 'rgba(26,27,29,1)',
+            whiteMain: 'rgba(255,255,255,1)'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-darkDeep text-whiteMain">
+
+<!-- NAVBAR -->
+<nav class="bg-darkDeep border-b border-redMain/50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-redMain font-extrabold text-2xl cursor-pointer"
+         onclick="location.href='index.html'">
+      FTC<span class="text-whiteMain">FUNDING</span>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="max-w-4xl mx-auto px-6 py-16 space-y-8">
+
+  <h1 class="text-4xl font-extrabold">
+    Add <span class="text-redMain">My Team</span>
+  </h1>
+
+  <p class="text-gray-300 text-lg">
+    Чтобы добавить вашу команду на сайт, свяжитесь со мной:
+  </p>
+
+  <div class="bg-darkMain border border-redMain/40 rounded-xl p-6 space-y-2">
+    <p>📧 <b>Email:</b> quakepitsme@gmail.com</p>
+    <p>📞 <b>Телефон:</b> +7 707 150 4015</p>
+  </div>
+
+  <div class="space-y-6">
+
+  <h2 class="text-2xl font-bold">
+    Как добавить свою команду
+  </h2>
+
+  <p class="text-gray-300 leading-relaxed">
+    Если вы хотите, чтобы ваша команда появилась на сайте <b>FTC FUNDING</b>,
+    пожалуйста, отправьте информацию о команде любым удобным способом
+    (email или мессенджер).
+  </p>
+
+  <p class="text-gray-400">
+    Ниже приведён пример того, какие данные нужны.
+    Просто заполните поля текстом — в любом удобном формате.
+  </p>
+
+  <div class="bg-darkMain border border-redMain/40 rounded-xl p-6 space-y-4 text-sm">
+
+    <div>
+      <span class="text-redMain font-semibold">Название команды:</span>
+      <div class="text-gray-400">например: Bolt.m3</div>
+    </div>
+
+    <div>
+      <span class="text-redMain font-semibold">Краткое описание:</span>
+      <div class="text-gray-400">коротко — кто вы и чем занимаетесь</div>
+    </div>
+
+    <div>
+      <span class="text-redMain font-semibold">Полное описание:</span>
+      <div class="text-gray-400">
+        подробный текст о команде, проектах, участии в соревнованиях, и наградах
+      </div>
+    </div>
+
+    <div>
+      <span class="text-redMain font-semibold">Ссылка или файл с фото команды:</span>
+      <div class="text-gray-400">
+        Google Drive / GitHub / сайт / любое изображение
+      </div>
+    </div>
+
+    <div>
+      <span class="text-redMain font-semibold">Необходимая сумма финансирования (если есть):</span>
+      <div class="text-gray-400">
+        число или примерная сумма
+      </div>
+    </div>
+
+    <div>
+      <span class="text-redMain font-semibold">Контакты команды:</span>
+      <div class="text-gray-400">
+        email
+      </div>
+    </div>
+
+  </div>
+
+  <p class="text-gray-400 text-sm">
+    После проверки информация будет добавлена на сайт.
+  </p>
+
+</div>
+
+
+</div>
+
+<footer class="bg-darkDeep border-t border-redMain/50 mt-20">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-center text-gray-400 text-sm">
+    © 2026 Quakep. Все права защищены.
+  </div>
+</footer>
+
+</body>
+</html>
