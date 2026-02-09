@@ -1,11 +1,20 @@
 [
   {
-    "id": 1,
+    "id": 22801,
     "name": "Bolt.m3",
-    "short": "FTC Team",
+    "short": "#22801",
     "long": "Мы команда FTC Bolt.m3. Участвуем в соревнованиях, разрабатываем собственные механизмы и проекты.",
-    "photo": "images/a.svg",
+    "photo": "images/22801.svg",
     "funds_needed": 100000,
     "contact": "quakepitsme@gmail.com"
+  },
+  {
+    "id": 32365,
+    "name": "mooneye",
+    "short": "#32365",
+    "long": "Команда mooneye представляют школу Атырау БИЛ в национальной и международной арене. Мы участвовали в 2 турнирах а именно на Batys Regional и Batys Qualifer где выиграли Reach award, Design award и Finalist Alliance Captain.",
+    "photo": "images/32635.png",
+    "funds_needed": 100000,
+    "contact": "mooneyeinspires@gmail.com"
   }
 ]
